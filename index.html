@@ -6,328 +6,54 @@
 <title>Evaluasi – Menulis Puisi</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --hijau: #2d7a4f;
-    --hijau-muda: #e8f5ee;
-    --biru: #1a6fa8;
-    --kuning: #f5c842;
-    --putih: #ffffff;
-    --teks: #2c3e50;
-    --abu: #f0f4f8;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: linear-gradient(135deg, #e8f5ee 0%, #d4eaf7 100%);
-    min-height: 100vh;
-    padding: 24px 16px;
-    color: var(--teks);
-  }
-
-  .kartu {
-    max-width: 680px;
-    margin: 0 auto;
-    background: var(--putih);
-    border-radius: 24px;
-    box-shadow: 0 8px 40px rgba(45,122,79,0.13);
-    overflow: hidden;
-    animation: masuk 0.5s ease;
-  }
-
-  @keyframes masuk {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .header {
-    background: linear-gradient(135deg, var(--hijau) 0%, #1a5c38 100%);
-    padding: 28px 32px 22px;
-    text-align: center;
-    position: relative;
-  }
-
-  .header .label {
-    display: inline-block;
-    background: var(--kuning);
-    color: #7a5500;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-  }
-
-  .header h1 {
-    font-family: 'Playfair Display', serif;
-    color: var(--putih);
-    font-size: 28px;
-    line-height: 1.2;
-  }
-
-  .header p {
-    color: rgba(255,255,255,0.8);
-    font-size: 13px;
-    margin-top: 6px;
-  }
-
-  .emoji-deco {
-    font-size: 36px;
-    margin-bottom: 8px;
-    display: block;
-  }
-
-  .soal-box {
-    background: var(--hijau-muda);
-    border-left: 5px solid var(--hijau);
-    margin: 24px 28px 0;
-    border-radius: 12px;
-    padding: 18px 20px;
-  }
-
-  .soal-box h2 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--hijau);
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .soal-box ol {
-    padding-left: 18px;
-    font-size: 14px;
-    line-height: 1.8;
-    color: var(--teks);
-  }
-
-  .form-area {
-    padding: 24px 28px 28px;
-  }
-
-  .input-group {
-    margin-bottom: 18px;
-  }
-
-  .input-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--hijau);
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
-  }
-
-  .input-group input[type="text"] {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid #d1e8da;
-    border-radius: 12px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px;
-    color: var(--teks);
-    transition: border-color 0.2s;
-    outline: none;
-    background: var(--abu);
-  }
-
-  .input-group input[type="text"]:focus {
-    border-color: var(--hijau);
-    background: #fff;
-  }
-
-  .bait-container {
-    display: grid;
-    gap: 18px;
-  }
-
-  .bait-card {
-    border: 2px solid #d1e8da;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .bait-card:focus-within {
-    border-color: var(--hijau);
-    box-shadow: 0 0 0 4px rgba(45,122,79,0.1);
-  }
-
-  .bait-header {
-    background: linear-gradient(90deg, var(--hijau) 0%, #3a9b65 100%);
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 8px 16px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .larik-list {
-    padding: 12px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background: #fafffe;
-  }
-
-  .larik-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .larik-num {
-    width: 24px;
-    height: 24px;
-    background: var(--hijau-muda);
-    color: var(--hijau);
-    border-radius: 50%;
-    font-size: 11px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .larik-row input {
-    flex: 1;
-    border: none;
-    border-bottom: 1.5px solid #d1e8da;
-    background: transparent;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 15px;
-    color: var(--teks);
-    padding: 6px 4px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .larik-row input:focus {
-    border-bottom-color: var(--hijau);
-  }
-
-  .larik-row input::placeholder {
-    font-style: italic;
-    color: #b0c4bc;
-    font-size: 13px;
-  }
-
-  .btn-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 28px;
-  }
-
-  .btn-kirim {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(135deg, var(--hijau) 0%, #1a5c38 100%);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s;
-    letter-spacing: 0.5px;
-  }
-
-  .btn-kirim:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(45,122,79,0.35);
-  }
-
-  .btn-kirim:active { transform: translateY(0); }
-
-  .btn-kembali {
-    width: 100%;
-    padding: 13px;
-    background: transparent;
-    color: var(--biru);
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    border: 2px solid var(--biru);
-    border-radius: 14px;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-  }
-
-  .btn-kembali:hover {
-    background: var(--biru);
-    color: white;
-  }
-
-  /* Sukses */
-  .sukses {
-    display: none;
-    text-align: center;
-    padding: 40px 28px;
-    animation: masuk 0.4s ease;
-  }
-
-  .sukses .cek {
-    font-size: 64px;
-    margin-bottom: 12px;
-    display: block;
-  }
-
-  .sukses h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    color: var(--hijau);
-    margin-bottom: 8px;
-  }
-
-  .sukses p {
-    color: #6b8c7e;
-    font-size: 14px;
-    margin-bottom: 24px;
-    line-height: 1.6;
-  }
-
-  .puisi-preview {
-    background: var(--hijau-muda);
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 24px;
-    text-align: left;
-  }
-
-  .puisi-preview h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--hijau);
-    font-size: 18px;
-    margin-bottom: 14px;
-    text-align: center;
-  }
-
-  .puisi-preview .bait-preview {
-    margin-bottom: 14px;
-    line-height: 1.8;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 15px;
-    color: var(--teks);
-  }
-
-  .footer-note {
-    font-size: 12px;
-    color: #aaa;
-    text-align: center;
-    padding: 16px;
-  }
+  :root { --hijau:#2d7a4f; --hijau-muda:#e8f5ee; --biru:#1a6fa8; --kuning:#f5c842; --putih:#ffffff; --teks:#2c3e50; --abu:#f0f4f8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,#e8f5ee 0%,#d4eaf7 100%); min-height:100vh; padding:24px 16px; color:var(--teks); }
+  .kartu { max-width:680px; margin:0 auto; background:var(--putih); border-radius:24px; box-shadow:0 8px 40px rgba(45,122,79,0.13); overflow:hidden; animation:masuk 0.5s ease; }
+  @keyframes masuk { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+  .header { background:linear-gradient(135deg,var(--hijau) 0%,#1a5c38 100%); padding:28px 32px 22px; text-align:center; }
+  .header .label { display:inline-block; background:var(--kuning); color:#7a5500; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:10px; }
+  .header h1 { font-family:'Playfair Display',serif; color:white; font-size:28px; }
+  .header p { color:rgba(255,255,255,0.8); font-size:13px; margin-top:6px; }
+  .emoji-deco { font-size:36px; margin-bottom:8px; display:block; }
+  .soal-box { background:var(--hijau-muda); border-left:5px solid var(--hijau); margin:24px 28px 0; border-radius:12px; padding:18px 20px; }
+  .soal-box h2 { font-size:13px; font-weight:700; color:var(--hijau); margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; }
+  .soal-box ol { padding-left:18px; font-size:14px; line-height:1.9; }
+  .form-area { padding:24px 28px 28px; }
+  .input-group { margin-bottom:18px; }
+  .input-group label { display:block; font-size:13px; font-weight:700; color:var(--hijau); margin-bottom:6px; }
+  .wajib { color:#e74c3c; margin-left:3px; }
+  .input-group input { width:100%; padding:12px 16px; border:2px solid #d1e8da; border-radius:12px; font-family:'Nunito',sans-serif; font-size:14px; color:var(--teks); outline:none; background:var(--abu); transition:border-color 0.2s; }
+  .input-group input:focus { border-color:var(--hijau); background:#fff; }
+  .bait-container { display:grid; gap:18px; }
+  .bait-card { border:2px solid #d1e8da; border-radius:16px; overflow:hidden; transition:border-color 0.2s,box-shadow 0.2s; }
+  .bait-card:focus-within { border-color:var(--hijau); box-shadow:0 0 0 4px rgba(45,122,79,0.1); }
+  .bait-header { background:linear-gradient(90deg,var(--hijau) 0%,#3a9b65 100%); color:white; font-size:12px; font-weight:700; padding:8px 16px; letter-spacing:1px; text-transform:uppercase; }
+  .larik-list { padding:12px 16px; display:flex; flex-direction:column; gap:8px; background:#fafffe; }
+  .larik-row { display:flex; align-items:center; gap:10px; }
+  .larik-num { width:24px; height:24px; background:var(--hijau-muda); color:var(--hijau); border-radius:50%; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .larik-row input { flex:1; border:none; border-bottom:1.5px solid #d1e8da; background:transparent; font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:var(--teks); padding:6px 4px; outline:none; transition:border-color 0.2s; }
+  .larik-row input:focus { border-bottom-color:var(--hijau); }
+  .larik-row input::placeholder { font-style:italic; color:#b0c4bc; font-size:13px; }
+  .opsional-note { font-size:11px; color:#aaa; margin-top:6px; padding-left:4px; }
+  .btn-group { display:flex; flex-direction:column; gap:12px; margin-top:28px; }
+  .btn-kirim { width:100%; padding:15px; background:linear-gradient(135deg,var(--hijau) 0%,#1a5c38 100%); color:white; font-family:'Nunito',sans-serif; font-size:16px; font-weight:700; border:none; border-radius:14px; cursor:pointer; transition:transform 0.15s,box-shadow 0.15s; }
+  .btn-kirim:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(45,122,79,0.35); }
+  .btn-kirim:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+  .btn-kembali { width:100%; padding:13px; background:transparent; color:var(--biru); font-family:'Nunito',sans-serif; font-size:14px; font-weight:700; border:2px solid var(--biru); border-radius:14px; cursor:pointer; text-decoration:none; display:block; text-align:center; transition:background 0.2s,color 0.2s; }
+  .btn-kembali:hover { background:var(--biru); color:white; }
+  .error-msg { background:#fff0f0; color:#c0392b; border:1px solid #f5c6c6; border-radius:10px; padding:12px 16px; font-size:13px; margin-top:12px; display:none; }
+  .sukses { text-align:center; padding:40px 28px; }
+  .sukses .cek { font-size:64px; margin-bottom:12px; display:block; }
+  .sukses h2 { font-family:'Playfair Display',serif; font-size:24px; color:var(--hijau); margin-bottom:8px; }
+  .sukses p { color:#6b8c7e; font-size:14px; margin-bottom:24px; line-height:1.6; }
+  .puisi-preview { background:var(--hijau-muda); border-radius:16px; padding:20px; margin-bottom:24px; text-align:left; }
+  .puisi-preview h3 { font-family:'Playfair Display',serif; color:var(--hijau); font-size:18px; margin-bottom:14px; text-align:center; }
+  .bait-preview { margin-bottom:14px; line-height:1.8; font-family:'Playfair Display',serif; font-style:italic; font-size:15px; }
+  .loading { display:inline-block; width:16px; height:16px; border:2px solid rgba(255,255,255,0.4); border-top-color:white; border-radius:50%; animation:spin 0.7s linear infinite; vertical-align:middle; margin-right:8px; }
+  @keyframes spin { to{transform:rotate(360deg)} }
+  .footer-note { font-size:12px; color:#aaa; text-align:center; padding:16px; }
+  .debug-box { background:#f8f0ff; border:1px solid #d4b0ff; border-radius:10px; padding:12px 16px; font-size:12px; margin-top:12px; display:none; color:#5a3080; }
 </style>
 </head>
 <body>
@@ -345,118 +71,147 @@
     <ol>
       <li>Puisi terdiri dari <strong>4 bait</strong></li>
       <li>Setiap bait terdiri dari <strong>4 larik</strong></li>
-      <li>Puisi bertema <strong>Lingkungan Sekitarmu</strong><br>(sekolah, rumah, atau masyarakat)</li>
+      <li>Puisi bertema <strong>Lingkungan Sekitarmu</strong> (sekolah, rumah, atau masyarakat)</li>
     </ol>
   </div>
 
   <div class="form-area">
     <div class="input-group">
-      <label>👤 Nama Siswa</label>
+      <label>👤 Nama Siswa <span class="wajib">*wajib</span></label>
       <input type="text" id="namaSiswa" placeholder="Tulis namamu di sini..." />
     </div>
     <div class="input-group">
       <label>📝 Judul Puisi</label>
-      <input type="text" id="judulPuisi" placeholder="Tulis judul puisimu..." />
+      <input type="text" id="judulPuisi" placeholder="Tulis judul puisimu (boleh kosong)..." />
     </div>
 
-    <div class="bait-container" id="baitContainer">
-      <!-- Bait 1-4 -->
-    </div>
+    <div class="bait-container" id="baitContainer"></div>
+    <p class="opsional-note">💡 Isi sebisamu ya, tidak harus lengkap semua.</p>
+
+    <div class="error-msg" id="errorMsg"></div>
+    <div class="debug-box" id="debugBox"></div>
 
     <div class="btn-group">
-      <button class="btn-kirim" onclick="kirimJawaban()">✅ Kirim Jawaban</button>
-      <a href="LINK_GENIALLY_KAMU" class="btn-kembali" id="btnKembali">← Kembali ke Genially</a>
+      <button class="btn-kirim" id="btnKirim" onclick="kirimJawaban()">✅ Kirim Jawaban</button>
+      <a href="https://view.genially.com/69d64d4fb0704131c5d9c2a3" class="btn-kembali">← Kembali ke Genially</a>
     </div>
   </div>
   <div class="footer-note">© Evaluasi Menulis Puisi – Bahasa Indonesia</div>
 </div>
 
-<!-- Halaman Sukses -->
 <div class="kartu" id="kartuSukses" style="display:none;">
   <div class="sukses">
     <span class="cek">🎉</span>
     <h2>Puisimu Sudah Terkirim!</h2>
-    <p>Terima kasih, <strong id="namaTampil"></strong>!<br>Puisimu sudah ditulis dengan baik. Tetap semangat belajar!</p>
-
-    <div class="puisi-preview" id="puisiPreview">
+    <p>Terima kasih, <strong id="namaTampil"></strong>!<br>Jawaban sudah tersimpan. Tetap semangat belajar! 🌟</p>
+    <div class="puisi-preview">
       <h3 id="judulTampil"></h3>
       <div id="isiBaitTampil"></div>
     </div>
-
-    <a href="LINK_GENIALLY_KAMU" class="btn-kembali" id="btnKembaliSukses" style="max-width:360px;margin:0 auto;">
+    <a href="https://view.genially.com/69d64d4fb0704131c5d9c2a3" class="btn-kembali" style="max-width:360px;margin:0 auto;display:block;">
       ← Kembali ke Genially
     </a>
   </div>
 </div>
 
 <script>
-  const GENIALLY_URL = "LINK_GENIALLY_KAMU"; // <-- GANTI INI
+  // ============ KONFIGURASI ============
+  const SUPABASE_URL = "https://rwffeiatkimoinlojoia.supabase.co";
+  // Gunakan anon key yang benar (dari Settings > API > anon public)
+  const SUPABASE_KEY = "GANTI_DENGAN_ANON_KEY_LENGKAP";
+  // ======================================
 
-  // Build bait inputs
-  const container = document.getElementById('baitContainer');
+  const judulBait = ['🏫 Bait 1', '🏠 Bait 2', '🌳 Bait 3', '🌟 Bait 4'];
   const placeholders = [
-    ["Lihat langit biru di pagi hari...", "Angin semilir menyapa diri...", "Ku langkah kaki penuh harapan...", "Menuju sekolah dengan senyuman..."],
-    ["Di rumahku tempat berteduh...", "Kasih ibu tak pernah rapuh...", "Bersama saudara saling berbagi...", "Hangat keluarga di setiap hari..."],
-    ["Tetangga ramah saling sapa...", "Gotong royong bersama-sama...", "Masyarakat hidup rukun damai...", "Indah negeriku tiada duai..."],
-    ["Jaga lingkungan jadi tugasku...", "Bersih dan hijau di sekitarku...", "Dengan cinta kita rawat bumi...", "Untuk generasi yang kan datang nanti..."]
+    ["Lihat langit biru di pagi hari...","Angin semilir menyapa diri...","Ku langkah kaki penuh harapan...","Menuju sekolah dengan senyuman..."],
+    ["Di rumahku tempat berteduh...","Kasih ibu tak pernah rapuh...","Bersama saudara saling berbagi...","Hangat keluarga di setiap hari..."],
+    ["Tetangga ramah saling sapa...","Gotong royong bersama-sama...","Masyarakat hidup rukun damai...","Indah negeriku tiada duai..."],
+    ["Jaga lingkungan jadi tugasku...","Bersih dan hijau di sekitarku...","Dengan cinta kita rawat bumi...","Untuk generasi yang kan datang nanti..."]
   ];
 
+  const container = document.getElementById('baitContainer');
   for (let b = 1; b <= 4; b++) {
     const baitDiv = document.createElement('div');
     baitDiv.className = 'bait-card';
-    const tema = ['🏫 Bait 1', '🏠 Bait 2', '🌳 Bait 3', '🌟 Bait 4'][b-1];
     let larikHTML = '';
     for (let l = 1; l <= 4; l++) {
-      larikHTML += `
-        <div class="larik-row">
-          <div class="larik-num">${l}</div>
-          <input type="text" id="b${b}l${l}" placeholder="${placeholders[b-1][l-1]}" />
-        </div>`;
+      larikHTML += `<div class="larik-row"><div class="larik-num">${l}</div><input type="text" id="b${b}l${l}" placeholder="${placeholders[b-1][l-1]}" /></div>`;
     }
-    baitDiv.innerHTML = `
-      <div class="bait-header">${tema}</div>
-      <div class="larik-list">${larikHTML}</div>`;
+    baitDiv.innerHTML = `<div class="bait-header">${judulBait[b-1]}</div><div class="larik-list">${larikHTML}</div>`;
     container.appendChild(baitDiv);
   }
 
-  // Set kembali links
-  document.getElementById('btnKembali').href = GENIALLY_URL;
-  document.getElementById('btnKembaliSukses').href = GENIALLY_URL;
+  function tampilError(msg) {
+    const el = document.getElementById('errorMsg');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
 
-  function kirimJawaban() {
+  async function kirimJawaban() {
     const nama = document.getElementById('namaSiswa').value.trim();
-    const judul = document.getElementById('judulPuisi').value.trim();
+    if (!nama) { tampilError('⚠️ Nama wajib diisi ya!'); return; }
 
-    if (!nama) { alert('Jangan lupa isi nama dulu ya! 😊'); return; }
-    if (!judul) { alert('Tuliskan judul puisimu dulu ya! 📝'); return; }
-
-    // Cek semua larik terisi
+    // Kumpulkan data, larik kosong = string kosong (tidak wajib)
+    const data = {
+      nama,
+      judul: document.getElementById('judulPuisi').value.trim() || '(tanpa judul)'
+    };
     for (let b = 1; b <= 4; b++) {
       for (let l = 1; l <= 4; l++) {
-        if (!document.getElementById(`b${b}l${l}`).value.trim()) {
-          alert(`Bait ${b}, larik ${l} masih kosong. Yuk lengkapi dulu! ✍️`);
-          return;
+        data[`bait${b}_larik${l}`] = document.getElementById(`b${b}l${l}`).value.trim();
+      }
+    }
+
+    const btn = document.getElementById('btnKirim');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="loading"></span> Menyimpan...';
+    document.getElementById('errorMsg').style.display = 'none';
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/jawaban_puisi`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!res.ok) {
+        const errText = await res.text();
+        // Tampilkan detail error untuk debugging
+        document.getElementById('debugBox').style.display = 'block';
+        document.getElementById('debugBox').textContent = `Status: ${res.status} | ${errText}`;
+        throw new Error(`HTTP ${res.status}`);
+      }
+
+      // Sukses
+      document.getElementById('namaTampil').textContent = nama;
+      document.getElementById('judulTampil').textContent = `"${data.judul}"`;
+      let isiBait = '';
+      for (let b = 1; b <= 4; b++) {
+        const larikAda = [1,2,3,4].some(l => data[`bait${b}_larik${l}`]);
+        if (larikAda) {
+          isiBait += '<div class="bait-preview">';
+          for (let l = 1; l <= 4; l++) {
+            const teks = data[`bait${b}_larik${l}`];
+            if (teks) isiBait += teks + '<br>';
+          }
+          isiBait += '</div>';
         }
       }
+      document.getElementById('isiBaitTampil').innerHTML = isiBait || '<p style="color:#aaa;font-style:italic">Puisi belum diisi.</p>';
+      document.getElementById('kartuForm').style.display = 'none';
+      document.getElementById('kartuSukses').style.display = 'block';
+      window.scrollTo({ top:0, behavior:'smooth' });
+
+    } catch(e) {
+      tampilError('❌ Gagal menyimpan. Cek koneksi atau coba lagi. (' + e.message + ')');
+      btn.disabled = false;
+      btn.innerHTML = '✅ Kirim Jawaban';
     }
-
-    // Tampilkan halaman sukses
-    document.getElementById('namaTampil').textContent = nama;
-    document.getElementById('judulTampil').textContent = '"' + judul + '"';
-
-    let isiBait = '';
-    for (let b = 1; b <= 4; b++) {
-      isiBait += '<div class="bait-preview">';
-      for (let l = 1; l <= 4; l++) {
-        isiBait += document.getElementById(`b${b}l${l}`).value + '<br>';
-      }
-      isiBait += '</div>';
-    }
-    document.getElementById('isiBaitTampil').innerHTML = isiBait;
-
-    document.getElementById('kartuForm').style.display = 'none';
-    document.getElementById('kartuSukses').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
 </body>
